@@ -3,9 +3,13 @@ const apiKey = 'YpWxFY4BAQgbMmazJUTOZObAE0lf1vRs2JQNfdJV';
 let asteroids = [];
 let todayDate;
 let osc;
+let maxCircleRadius =100;
 
 async function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let windowPadding = 100;
+ var cnv= createCanvas(windowWidth-windowPadding , windowHeight-(windowPadding*2) );
+  var x = (windowWidth - width) / 2;
+  cnv.position(x);
   colorMode(HSB, 1);
    todayDate = `${new Date().getFullYear()}-${('0' + (new Date().getMonth() + 1)).slice(-2)}-${('0' + new Date().getDate()).slice(-2)}`;
   console.log(todayDate);
@@ -24,20 +28,21 @@ async function setup() {
 
 
 function draw() {
-  background(0.1);
+  background("#262626");
   if (asteroids.length == 0) return;
   for (let asteroid of asteroids) {
 
     let growthSpeed = map(asteroid.velocity, 0, 30, 1, 3);
     let centerOffset = map(width / 2 - asteroid.missDistance, 0, -50000000, 0, width);
-    asteroid.radius += 0.05 * growthSpeed;
+    if(asteroid.radius<maxCircleRadius)
+      asteroid.radius += 0.03 * growthSpeed;
     asteroid.x = lerp(asteroid.x, centerOffset, 0.0001);
     asteroid.y = lerp(asteroid.y, centerOffset, 0.0001);
   
     //rings
     drawRings(asteroid);
     //circle
-    fill(0.1)
+    fill("#262626")
     noStroke()
     circle(asteroid.x,asteroid.y,asteroid.radius);
     //name
