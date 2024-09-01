@@ -13,10 +13,8 @@ canvas {
 p {
   font-size: 18px; 
   text-align: center;
-  padding-right: 200px;
-  padding-left: 200px;
-  margin-left: 100px;
-  margin-right:100px;
+  margin-left: 150px;
+  margin-right:150px;
 }
 
 h1 {
