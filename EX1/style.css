@@ -1,0 +1,73 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Outfit', sans-serif;
+    background-color: blue;
+}
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    margin-bottom: 100px;
+}
+.intro-text-p{
+    text-align: center;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.potato-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#potato-animation {
+    border-radius: 320px;
+    width: 480px;  /* Adjust based on your image size */
+    height: 480px; /* Adjust based on your image size */
+    /* background-image: url('png_sequence/potato0.png'); */
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.1s ease-in-out;
+}
+
+.potato-container.final {
+    opacity:  0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.left-text, .right-text {
+    width: 25%;
+    padding: 10px;
+    position: relative;
+
+    height:1000px;
+}
+
+.running-text {
+    position:absolute;
+}
+
+
+.final-section {
+    height: 1000px;
+    /* padding-top: 3px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
