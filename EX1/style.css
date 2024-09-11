@@ -22,8 +22,8 @@ body, html {
     /* height: 10vh; */
     width: 100%;
     z-index: 1;
-    margin-left: 20px;
-    margin-top: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
     /* margin-bottom: 100px; */
 }
 .intro-text-p{
@@ -133,6 +133,9 @@ body, html {
         font-size: 60px;
         margin-bottom: 50px;
         margin-top: 20px;
+    }
+    .running-text{
+        font-size: 40px;
     }
 
     #final-fortune-header {
