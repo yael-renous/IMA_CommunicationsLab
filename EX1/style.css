@@ -3,7 +3,7 @@
     --text-color: rgb(253 1 1);
 
 
-
+}
 body, html {
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@ body, html {
     width: 100%;
     z-index: 1;
     margin-left: 20px;
-    margin-bottom:0px
+    margin-top: 20px;
     /* margin-bottom: 100px; */
 }
 .intro-text-p{
@@ -32,6 +32,8 @@ body, html {
 }
 .intro-text-h1{
     font-size: 180px;
+    margin-bottom: 100px;
+    font-weight: 600;
 }
 
 .main-section {
@@ -48,7 +50,7 @@ body, html {
 .left-text, .right-text {
     font-style:oblique;
     font-weight: 900;
-    font-size:50px;
+    font-size:70px;
     width: 50%;
     padding: 10px;
     position: relative;
@@ -88,21 +90,32 @@ body, html {
 
 
 .final-section {
-    height: 1000px;
+    /* height: 1000px; */
     display: flex;
+    padding-top: 100px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 #fortune-text {
-    color:purple;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 100px;
 }
 
 #fortune-img {
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     object-fit: contain;
     object-position: center;
 }
+
+#final-fortune-header {
+    color: var(--text-color);
+    font-size: 100px;
+    margin-bottom:100vh;
+}
+
 

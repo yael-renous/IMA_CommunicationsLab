@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function chooseFortune() {
         const fortuneOutputs = [
-            'fortune_outputs/crisps.jpg',
-            'fortune_outputs/french.jpg',
+            'fortune_outputs/baked.png',
+            'fortune_outputs/french fried.png',
+            'fortune_outputs/mashed.png',
+            'fortune_outputs/smashed.png',
+            'fortune_outputs/crisped.png',
         ];
 
         function selectRandomFortune() {
