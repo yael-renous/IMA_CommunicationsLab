@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const potatoAnimation = document.getElementById('potato-animation');
     const potatoContainer = document.getElementsByClassName('potato-container')[0];
-    const mainSection = document.querySelector('.main-section'); // Add this line
-    const frameCount = 340;
-    let imagesLoaded = 0;
-    const images = []; // Array to hold our loaded images
+    const mainSection = document.querySelector('.main-section'); 
+    const introSection = document.querySelector('.intro-section'); 
 
-    // Preload images
+    const frameCount = 100;
+
+    let imagesLoaded = 0;
+    const images = []; 
+
     function preloadImages() {
         for (let i = 0; i < frameCount; i++) {
             const img = new Image();
@@ -16,32 +18,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             };
             img.src = `png_sequence/potato${i.toString()}.png`;
-            images.push(img); // Store reference to the image
+            images.push(img); 
         }
     }
 
-    // Start preloading
-    preloadImages();
+    function chooseFortune() {
+        const fortuneOutputs = [
+            'fortune_outputs/crisps.jpg',
+            'fortune_outputs/french.jpg',
+        ];
+
+        function selectRandomFortune() {
+            if (fortuneOutputs.length > 0) {
+                const randomIndex = Math.floor(Math.random() * fortuneOutputs.length);
+                const fortuneImg = document.getElementById('fortune');
+                fortuneImg.src = fortuneOutputs[randomIndex];
+            } else {
+                console.error('No fortune images found');
+            }
+        }
+
+        selectRandomFortune();
+    }
 
     function updateAnimation() {
         const mainSectionRect = mainSection.getBoundingClientRect();
-        const mainSectionTop = mainSectionRect.top;
-        const mainSectionBottom = mainSectionRect.bottom;
-        const viewportHeight = window.innerHeight;
+        const introSectionRect = introSection.getBoundingClientRect();
+        const offset = 400;
 
-        let scrollFraction;
-
-        // if (mainSectionTop > 0) {
-        //     // Main section hasn't reached the top of the viewport yet
-        //     scrollFraction = 0;
-        // } else 
-        if (mainSectionBottom < viewportHeight) {
-            // Main section has scrolled past the bottom of the viewport
-            scrollFraction = 1;
-        } else {
-            // Main section is partially in view
-            scrollFraction = Math.abs(mainSectionTop) / (mainSectionRect.height - viewportHeight);
-        }
+        let scrollFraction = window.scrollY / ((mainSectionRect.height+introSectionRect.height+offset)  - window.innerHeight);
 
         const frameIndex = Math.min(
             frameCount - 1,
@@ -57,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    chooseFortune(); 
+    preloadImages();
     window.addEventListener('scroll', updateAnimation);
     updateAnimation(); 
 });
