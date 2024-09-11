@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainSection = document.querySelector('.main-section'); 
     const introSection = document.querySelector('.intro-section'); 
 
-    const frameCount = 100;
+    const frameCount = 680;
 
     let imagesLoaded = 0;
     const images = []; 
@@ -31,8 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
         function selectRandomFortune() {
             if (fortuneOutputs.length > 0) {
                 const randomIndex = Math.floor(Math.random() * fortuneOutputs.length);
-                const fortuneImg = document.getElementById('fortune');
+                const fortuneImg = document.getElementById('fortune-img');
                 fortuneImg.src = fortuneOutputs[randomIndex];
+                const fortuneText = document.getElementById('fortune-text');
+                fortuneText.textContent = fortuneOutputs[randomIndex].split('/').pop().split('.')[0] + " potato!";
             } else {
                 console.error('No fortune images found');
             }

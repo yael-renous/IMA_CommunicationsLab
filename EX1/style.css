@@ -1,23 +1,37 @@
+:root {
+    --bg-color: rgb(0, 255, 238);
+    --text-color: rgb(253 1 1);
+
+
+
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Outfit', sans-serif;
+    font-family: "Major Mono Display", monospace;
     color: white;
-    /* background-color: blue; */
+    background-color: var(--bg-color);
+    text-transform: uppercase;
 }
 .intro-section {
-    position:fixed;
+    position:sticky;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
+    justify-content: left;
+    align-items: left;
+    /* height: 10vh; */
     width: 100%;
+    z-index: 1;
+    margin-left: 20px;
+    margin-bottom:0px
     /* margin-bottom: 100px; */
 }
 .intro-text-p{
-    text-align: center;
+    width: 50%;
+   font-size: 80px;
+}
+.intro-text-h1{
+    font-size: 180px;
 }
 
 .main-section {
@@ -25,21 +39,26 @@ body, html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     align-items: center;
     position: relative;
     width: 100%;
     padding-top: 100px;
 }
 .left-text, .right-text {
+    font-style:oblique;
+    font-weight: 900;
+    font-size:50px;
     width: 50%;
     padding: 10px;
     position: relative;
     height:800vh;
-    color: red;
+    color: var(--text-color);
 }
 
 .running-text {
     position:absolute;
+    
 }
 
 .potato-container {
@@ -47,13 +66,15 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    /* z-index: 1; */
 }
 
 #potato-animation {
     width: 1920px;  /* Adjust based on your image size */
     height: 1080px; /* Adjust based on your image size */
     background-image: url('png_sequence/potato0.png');
+    background-color: var(--bg-color);
+    background-blend-mode: darken;
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -66,11 +87,22 @@ body, html {
 }
 
 
-
 .final-section {
     height: 1000px;
-    /* padding-top: 3px; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+#fortune-text {
+    color:purple;
+}
+
+#fortune-img {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    object-position: center;
+}
+
