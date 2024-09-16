@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     let pinataBroken = false;
     let numOfPinataHits = 0;
-    const numOfHitsToBreak = 3;
+    const numOfHitsToBreak = 5;
 
     const girlImage = document.getElementById('girl');
     const boyImage = document.getElementById('boy');
@@ -29,20 +29,22 @@ document.addEventListener('DOMContentLoaded', function () {
         if (numOfPinataHits >= numOfHitsToBreak) {
             kidSounds.src = 'Sounds/screaming.mp3';
             pinataImage.src = 'Images/pinata-broken.png';
-            spiderBackground.style.backgroundImage = 'url(Images/spiders1.gif)';
-            spiderBackground.style.opacity = 1;
-            document.body.style.backgroundImage = 'url(Background/dark.png)';
-            //change spider background to fill entire screen
-            setTimeout(() => {
-                console.log("Spider background changed");
-                spiderBackground.style.transition = 'background-image 0.8s ease-in-out';
-                spiderBackground.style.backgroundImage = 'url(Images/spidersloop.gif)';
-                spiderBackground.style.backgroundSize = 'auto';
-            }, 4000);
-            pinataImage.style.cursor = 'default';
             pinataBroken = true;
             girlImage.src = 'Images/girl-scared.png';
             boyImage.src = 'Images/boy-scared.png';
+            document.body.style.backgroundImage = 'url(Background/dark.png)';
+
+            spiderBackground.style.opacity = 1;
+            spiderBackground.style.backgroundImage = 'url(Images/spidersStart.gif)';
+           
+            //change spider background to fill entire screen
+            setTimeout(() => {
+                console.log("Spider background changed");
+                spiderBackground.style.backgroundImage = 'url(Images/spidersLoop.gif)';
+                spiderBackground.style.backgroundSize = 'auto';
+            }, 6000);
+            pinataImage.style.cursor = 'default';
+         
             pinataImage.removeEventListener('click', handlePinataClick);
         }
     }
