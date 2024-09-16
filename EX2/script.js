@@ -27,16 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //check if pinata is broken
         if (numOfPinataHits >= numOfHitsToBreak) {
-            kidSounds.src = 'Sounds/screaming.mp3';
-            pinataImage.src = 'Images/pinata-broken.png';
-            pinataBroken = true;
-            girlImage.src = 'Images/girl-scared.png';
-            boyImage.src = 'Images/boy-scared.png';
-            document.body.style.backgroundImage = 'url(Background/dark.png)';
 
+            pinataImage.src = 'Images/pinata-broken.png';
             spiderBackground.style.opacity = 1;
             spiderBackground.style.backgroundImage = 'url(Images/spidersStart.gif)';
-           
+            document.body.style.backgroundImage = 'url(Background/dark.png)';
+
+
+            setTimeout(() => {
+                kidSounds.src = 'Sounds/screaming.mp3';
+                girlImage.src = 'Images/girl-scared.png';
+                boyImage.src = 'Images/boy-scared.png';
+
+            }, 1000);
+            pinataBroken = true;
+
             //change spider background to fill entire screen
             setTimeout(() => {
                 console.log("Spider background changed");
@@ -44,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 spiderBackground.style.backgroundSize = 'auto';
             }, 6000);
             pinataImage.style.cursor = 'default';
-         
+
             pinataImage.removeEventListener('click', handlePinataClick);
         }
     }
