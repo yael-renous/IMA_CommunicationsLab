@@ -55,39 +55,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ---------- Kid Image Event Listeners ----------
-    girlImage.addEventListener('mouseenter', function (event) {
-        if (!pinataBroken) {
-            girlImage.src = 'Images/girl-happy-gu.png';
-        }
-        else {
-            girlImage.src = 'Images/girl-scared-gu.png';
-        }
-    });
-    girlImage.addEventListener('mouseleave', function (event) {
-        if (!pinataBroken) {
-            girlImage.src = 'Images/girl-happy.png';
-        }
-        else {
-            girlImage.src = 'Images/girl-scared.png';
-        }
-    });
+    function handleKidImageEvents(imageElement, happyImage, happyGuImage, scaredImage, scaredGuImage) {
+        imageElement.addEventListener('mouseenter', function (event) {
+            imageElement.src = pinataBroken ? scaredGuImage : happyGuImage;
+            imageElement.style.transform = 'scale(2.7)';
+        });
 
-    boyImage.addEventListener('mouseenter', function (event) {
-        if (!pinataBroken) {
-            boyImage.src = 'Images/boy-happy-gu.png';
-        }
-        else {
-            boyImage.src = 'Images/boy-scared-gu.png';
-        }
-    });
-    boyImage.addEventListener('mouseleave', function (event) {
-        if (!pinataBroken) {
-            boyImage.src = 'Images/boy-happy.png';
-        }
-        else {
-            boyImage.src = 'Images/boy-scared.png';
-        }
-    });
+        imageElement.addEventListener('mouseleave', function (event) {
+            imageElement.src = pinataBroken ? scaredImage : happyImage;
+            imageElement.style.transform = 'scale(1)';
+        });
+    }
+
+    handleKidImageEvents(
+        girlImage,
+        'Images/girl-happy.png',
+        'Images/girl-happy-gu.png',
+        'Images/girl-scared.png',
+        'Images/girl-scared-gu.png'
+    );
+
+    handleKidImageEvents(
+        boyImage,
+        'Images/boy-happy.png',
+        'Images/boy-happy-gu.png',
+        'Images/boy-scared.png',
+        'Images/boy-scared-gu.png'
+    );
 });
 
 

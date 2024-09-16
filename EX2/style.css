@@ -64,10 +64,6 @@ body{
     object-position: top;
 }
 
-.kid-image:hover {
-    transform: scale(2.7);
-}
-
 #girl {
   left: 5%;
 }
