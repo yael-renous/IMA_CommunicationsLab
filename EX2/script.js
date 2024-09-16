@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     let pinataBroken = false;
     let numOfPinataHits = 0;
-    const numOfHitsToBreak = 1;
+    const numOfHitsToBreak = 3;
 
     const girlImage = document.getElementById('girl');
     const boyImage = document.getElementById('boy');
