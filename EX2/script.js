@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //change spider background to fill entire screen
             setTimeout(() => {
                 console.log("Spider background changed");
-                spiderBackground.style.backgroundImage = 'url(Images/spidersLoop.gif)';
+                spiderBackground.style.backgroundImage = 'url(Images/spidersloop.gif)';
                 spiderBackground.style.backgroundSize = 'auto';
             }, 6000);
             pinataImage.style.cursor = 'default';
