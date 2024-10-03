@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+
+
+    <script src="Scripts/JS/whatsappReader.js"></script>
+    <script src="Scripts/JS/groupData.js"></script>
+    <script src="Scripts/JS/sketch.js"></script>
+</head>
+
+<body style="margin: 0; padding: 0; overflow: hidden;">
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            async function tryInitSketch() {
+                try {
+                    console.log("Attempting initSketch");
+                    await initSketch();
+                    console.log("initSketch done");
+                } catch (error) {
+                    console.error("initSketch failed:", error);
+                    console.log("Retrying in 1 second...");
+                    setTimeout(tryInitSketch, 1000);
+                }
+            }
+
+            tryInitSketch();
+        });
+    </script>
+</body>

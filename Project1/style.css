@@ -1,0 +1,43 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: url(./Assets/Images/background-light.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+canvas {
+  display: block;
+}
+
+.chat-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.circular-button {
+  width: 50vw;  /* 50% of viewport width */
+  /* min-width: 200px;  Minimum width to ensure readability */
+  /* max-width: 300px;  Maximum width to prevent excessive stretching */
+  height: 5vh;  /* 8% of viewport height */
+  min-height: 40px;  /* Minimum height for touch-friendly buttons */
+  max-height: 80px;  /* Maximum height to maintain proportions */
+  border-radius: 10px;
+  background-color: rgba(144, 238, 144, 0.5); /* Light green with 80% opacity */
+  border: 2px solid #006400;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vh;
+  font-weight: bold;
+  color: #006400;
+  margin: 10px 0;
+}
