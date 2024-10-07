@@ -3,7 +3,8 @@ let userData = {};
 let messages = [];
 let userIcons = {};
 let groupIcon;
-const censorString = "צנזורמערכתי";
+// const censorString = "צנזורמערכתי";
+const censorString = "SystemCensor";
 
 //--screen management--
 let isLoading = true;
@@ -135,7 +136,9 @@ function setup() {
 
   if (windowWidth > windowHeight) {
     // Landscape mode: fill height and make it HD proportions
-    createCanvas((windowHeight * 9) / 16, windowHeight);
+    let cnv= createCanvas((windowHeight * 9) / 16, windowHeight);
+    var x = (windowWidth - width) / 2;
+    cnv.position(x);
     console.log("Landscape mode");
   } else {
     // Portrait mode: fill entire screen
@@ -236,13 +239,13 @@ function drawMap() {
     rectMode(CENTER);
     circle(mapX, mapY, circleWidth);
     textAlign(RIGHT, CENTER);
-    text("נרצח/ה", mapX - circleWidth, mapY);
+    text("murderd", mapX - circleWidth, mapY);
 
     drawingContext.shadowColor = yellowChatBoxColor;
     fill(yellowChatBoxColor);
     circle(mapX, mapY + circleWidth * 1.5, circleWidth);
     fill(yellowChatBoxColor);
-    text("חטופ/ה", mapX - circleWidth, mapY + circleWidth * 1.5);
+    text("kidnapped", mapX - circleWidth, mapY + circleWidth * 1.5);
 
 
     pop();
@@ -645,6 +648,10 @@ async function loadChat(chat) {
 
 function addMessagesNewLines() {
   for (let i = 0; i < messages.length; i++) {
+    // Remove spaces from message username
+    messages[i].userName = messages[i].userName.replace(/\s+/g, '');
+
+    
     let lines = messages[i].message.split('\n');
     let newContent = [];
 
@@ -670,7 +677,7 @@ async function loadUserData(rawUserData) {
       let icon = rawUserData[i].icon;
       let img = await loadImage(`Assets/UserIcons/${icon}.png`);
       img.resize(userIconSize, userIconSize);
-      userData[rawUserData[i].username] = {
+      userData[rawUserData[i].username.replace(/\s+/g, '')] = {
         img: img,
         color: rawUserData[i].color,
         status: rawUserData[i].status

@@ -4,40 +4,114 @@ body {
   padding: 0;
   background: url(./Assets/Images/background-light.jpg) no-repeat center center fixed;
   background-size: cover;
+  font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace;
+  line-height: 1.6;
+  font-size: 12px;
+  color: #ffffff;
 }
 
-canvas {
-  display: block;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Add this line */
+  max-width: 1200px;
+  width: 100%;
+}
+
+.description-container {
+  background-color: rgba(51, 51, 51, 0.64);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  /* margin-right: 0px; */
+  align-self: flex-start; /* Add this line */
+}
+
+.description-text {
+  text-align: left;
 }
 
 .chat-buttons-container {
+  width: 45%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center; /* Change from align-items: flex-end */
+  padding-right: 10%;
+  height: 100%; /* Add this line */
+}
+
+#buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* gap: 10px; */
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 .circular-button {
-  width: 50vw;  /* 50% of viewport width */
-  /* min-width: 200px;  Minimum width to ensure readability */
-  /* max-width: 300px;  Maximum width to prevent excessive stretching */
-  height: 5vh;  /* 8% of viewport height */
-  min-height: 40px;  /* Minimum height for touch-friendly buttons */
-  max-height: 80px;  /* Maximum height to maintain proportions */
-  border-radius: 10px;
-  background-color: rgba(144, 238, 144, 0.5); /* Light green with 80% opacity */
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgba(144, 238, 144, 0.3);
   border: 2px solid #006400;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5vh;
+  font-size: 16px;
   font-weight: bold;
   color: #006400;
-  margin: 10px 0;
+  margin: 5px 0;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.circular-button:hover {
+  background-color: rgba(144, 238, 144, 0.7);
+  transform: scale(1.01);
+}
+
+@media (max-width: 600px) {
+  .circular-button {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: stretch; /* Add this line */
+  }
+
+  .description-container {
+    align-self: center;
+    width: 80%;
+    margin-bottom: 20px;  }
+
+  .chat-buttons-container {
+    width: 100%;
+  }
+}
+
+canvas {
+  display: block;
 }
