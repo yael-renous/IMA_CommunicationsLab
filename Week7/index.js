@@ -1,8 +1,12 @@
-let express = require('express');
+import express from 'express';
+import {Low} from 'lowdb';
+import { JSONFile } from 'lowdb/node';
+
 let app = express();
 app.use(express.json());
 
-const storyLines = {
+
+const defaultData = {
   lines: [
     {
       text: "Once upon a time",
@@ -12,18 +16,27 @@ const storyLines = {
   ]
 };
 
+const adapter = new JSONFile('db.json');
+const db = new Low(adapter, defaultData);
+
+
+
 app.post('/new-data', (request, response) => {
-  const { text, color } = request.body;
-  storyLines.lines.push({ text, color });
   console.log("adding new data");
-  console.log(storyLines);
-  response.json({ task: 'success' });
+  const { text, color } = request.body;
+  db.data.lines.push({ text, color });
+  db.write().then(() => {
+    console.log("added" + db.data);
+    response.json({ task: 'success' });
+  });
 });
 
 app.get('/data', (request, response) => {
   console.log("getting data");
-  console.log(storyLines);
-  response.json(storyLines);
+  db.read().then(() => {
+    let obj = {lines: db.data.lines};
+    response.json(obj);
+  });
 });
 
 
